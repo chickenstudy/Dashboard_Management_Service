@@ -7,7 +7,6 @@ const { Option } = Select;
 
 const AddServiceModal = ({ visible, onClose, onServiceAdded }) => {
   const [form] = Form.useForm();
-  // Để theo dõi giá trị type (node/windows), cho phép ẩn/hiện checkbox
   const [serviceType, setServiceType] = useState("node");
 
   const handleFinish = async (values) => {
@@ -59,6 +58,7 @@ const AddServiceModal = ({ visible, onClose, onServiceAdded }) => {
           <Select onChange={(val) => setServiceType(val)}>
             <Option value="node">Node</Option>
             <Option value="windows">Windows</Option>
+            <Option value="exe">EXE</Option> {/* Thêm lựa chọn EXE */}
           </Select>
         </Form.Item>
 
@@ -76,14 +76,14 @@ const AddServiceModal = ({ visible, onClose, onServiceAdded }) => {
           <Input />
         </Form.Item>
 
-        {/* Thêm trường Port (chỉ cần nhập nếu service là Node) */}
+        {/* Port chỉ hiển thị nếu type = "node" */}
         {serviceType === "node" && (
           <Form.Item label="Port" name="port">
             <Input placeholder="Optional: e.g., 3001" />
           </Form.Item>
         )}
 
-        {/* Nếu muốn autoCreateService cho windows */}
+        {/* autoCreateService chỉ hiển thị nếu type = "windows" */}
         {serviceType === "windows" && (
           <Form.Item
             name="autoCreateService"

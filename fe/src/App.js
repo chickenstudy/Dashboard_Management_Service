@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { Layout, Typography, Button } from "antd";
 import AddServiceModal from "./components/AddServiceModal";
-import ServiceTable from "./components/ServiceTable";
+import ServiceCards from "./components/ServiceCards";
 import api from "./api";
-import "antd/dist/reset.css"; // Dành cho antd v5 (hoặc dùng 'antd/dist/antd.css' nếu dùng v4)
+import "antd/dist/reset.css";
 
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
@@ -39,7 +39,7 @@ function App() {
         >
           Add Service
         </Button>
-        <ServiceTable services={services} onActionComplete={fetchServices} />
+        <ServiceCards services={services} onActionComplete={fetchServices} />
       </Content>
       <Footer style={{ textAlign: "center" }}>
         Dashboard ©2025 Created by TuanParkYang

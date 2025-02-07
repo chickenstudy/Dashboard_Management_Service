@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
       },
       // Kiểu service: 'node' hoặc 'windows'
       type: {
-        type: DataTypes.ENUM("node", "windows"),
+        type: DataTypes.ENUM("node", "windows", "exe"),
         allowNull: false,
       },
       // Đối với Node: đường dẫn file cần chạy (ví dụ: app.js)
